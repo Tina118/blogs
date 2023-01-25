@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { withRouter, WithRouterProps } from 'helper/withRouter';
-
-
+import { withRouter, WithRouterProps } from 'helper/withRouter'
+import InputField from 'components/InputField'
+import SubmitButton from 'components/SubmitButton'
 
 class Login extends React.Component<{ router: WithRouterProps }> {
   state = { username: '', password: '' }
@@ -44,40 +44,25 @@ class Login extends React.Component<{ router: WithRouterProps }> {
               </div>
               <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                 <form>
-                  <div className="form-outline mb-4">
-                    <input
-                      type="text"
-                      id="form3Example3"
-                      className="form-control form-control-lg"
-                      placeholder="Enter username"
-                      required
-                      onChange={this.handleUsernameChange}
-                    />
-                    
-                  </div>
+                  <InputField
+                    type="text"
+                    id="userName"
+                    placeholder="Enter username"
+                    onChange={this.handleUsernameChange}
+                  />
 
-                  <div className="form-outline mb-3">
-                    <input
-                      type="password"
-                      id="form3Example4"
-                      className="form-control form-control-lg"
-                      placeholder="Enter password"
-                      required
-                      onChange={this.handlePasswordChange}
-                    />
-                    
-                  </div>
+                  <InputField
+                    type="password"
+                    id="password"
+                    placeholder="Enter password"
+                    onChange={this.handlePasswordChange}
+                  />
 
-                  <div className="text-center text-lg-start mt-4 pt-2">
-                    <button
-                      type="button"
-                      className="btn btn-primary btn-lg"
-                      style={{paddingLeft: "2.5rem", paddingRight: "2.5rem"}}
-                      onClick={this.handleSubmit}
-                    >
-                      Login
-                    </button>
-                  </div>
+                  <SubmitButton
+                    buttonText="Login"
+                    onClick={this.handleSubmit}
+                    style={{paddingLeft: "2.5rem", paddingRight: "2.5rem"}}
+                  />
                 </form>
               </div>
             </div>
