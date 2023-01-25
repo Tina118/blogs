@@ -4,21 +4,36 @@ import { withRouter, WithRouterProps, formatData, filterPosts } from 'helper'
 import PostCard from 'components/PostCard'
 import Pagination from 'components/Pagination'
 import Navigation from 'components/Navigation'
+import DetailedPostCard from 'components/DetailedPostCard'
 
 interface StateProps {
   posts: object[]
   numberofTotalPages: number
   visiblePosts: object[]
   currentPage: number
+  post: {
+    id: Number
+    name: string
+    body: string
+    email: string
+  }
 }
 
-class Posts extends React.Component<{ router: WithRouterProps }> {
+class Posts extends React.Component<{
+  router: WithRouterProps
+}> {
   state = {
     posts: [],
     numberOfTotalPages: 20,
     visiblePosts: [],
     currentPage: 1,
     searchQuery: '',
+    post: {
+      id: 0,
+      name: '',
+      body: '',
+      email: '',
+    },
   }
 
   componentDidMount(): void {
@@ -37,7 +52,21 @@ class Posts extends React.Component<{ router: WithRouterProps }> {
   }
 
   componentDidUpdate(prevProps: any, prevState: StateProps): void {
-    if (prevState.currentPage !== this.state.currentPage) {
+    const { params } = this.props.router
+
+    if (params.id) {
+      console.log(params.id)
+      const post = this.state.posts
+        .flat()
+        .filter(({ id }: any) => id === Number(params.id))
+
+      if (JSON.stringify(prevState.post) !== JSON.stringify(post[0])) {
+
+        this.setState({ post: post[0] })
+      }
+    }
+
+    if (JSON.stringify(prevState.currentPage) !== JSON.stringify(this.state.currentPage)) {
       this.setState({ searchQuery: '' })
     }
     if (this.state.searchQuery !== '') return
@@ -74,30 +103,43 @@ class Posts extends React.Component<{ router: WithRouterProps }> {
   }
 
   render() {
+  
     return (
       <>
         <Navigation
           handleLogout={this.handleLogout}
           handleSearch={this.handleSearch}
           value={this.state.searchQuery}
+          showSearch={this.state.post.id === 0 }
         />
-        {this.state.visiblePosts.map((posts: object[], index: number) => (
-          <div className="card-group" key={index}>
-            {posts.map(({ id, name, email, body }: any) => (
-              <PostCard
-                id={id}
-                name={name}
-                email={email}
-                body={body}
-                key={name}
-              />
+        {this.state.post.id !== 0 ? (
+          <DetailedPostCard
+            id={this.state.post.id}
+            name={this.state.post.name}
+            email={this.state.post.email}
+            body={this.state.post.body}
+          />
+        ) : (
+          <>
+            {this.state.visiblePosts.map((posts: object[], index: number) => (
+              <div className="card-group" key={index}>
+                {posts.map(({ id, name, email, body }: any) => (
+                  <PostCard
+                    id={id}
+                    name={name}
+                    email={email}
+                    body={body}
+                    key={name}
+                  />
+                ))}
+              </div>
             ))}
-          </div>
-        ))}
-        <Pagination
-          numberOfTotalPages={this.state.numberOfTotalPages}
-          handlePagination={this.handlePagination}
-        />
+            <Pagination
+              numberOfTotalPages={this.state.numberOfTotalPages}
+              handlePagination={this.handlePagination}
+            />
+          </>
+        )}
       </>
     )
   }

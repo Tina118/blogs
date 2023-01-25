@@ -4,12 +4,14 @@ interface NavigationProps {
   handleLogout: () => void
   handleSearch: React.ChangeEventHandler<HTMLInputElement>
   value: string
+  showSearch: boolean
 }
 
 const Navigation: FC<NavigationProps> = ({
   handleLogout,
   handleSearch,
   value,
+  showSearch,
 }) => {
   return (
     <nav
@@ -19,14 +21,17 @@ const Navigation: FC<NavigationProps> = ({
       <div className="container-fluid">
         <a className="navbar-brand">Welcome!</a>
         <form className="d-flex" role="search">
-          <input
-            className="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-            onChange={handleSearch}
-            value={value}
-          />
+          {showSearch && (
+            <input
+              className="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              onChange={handleSearch}
+              value={value}
+            />
+          )}
+
           <button
             className="btn btn-outline-success "
             type="submit"

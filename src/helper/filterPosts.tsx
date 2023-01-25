@@ -1,6 +1,8 @@
 import {formatData} from './formatData'
 
 export const filterPosts = (posts:any,query:string) => {
+    if(query==="") return posts;
+    
     const postsList = posts.flat()
 
     const filterByName = postsList.filter(({ name }:any) => {
@@ -12,11 +14,9 @@ export const filterPosts = (posts:any,query:string) => {
         return email.toLowerCase().includes(query.toLowerCase());
       });
 
-    const filterByComments = postsList.filter(({ body }:any) => {
-        return body.toLowerCase().includes(query.toLowerCase());
-      });
 
-      const filteredPost = [...filterByName,...filterByEmail,...filterByComments]
+      const filteredPost = [...filterByName,...filterByEmail]
+
 
       return formatData(filteredPost,3,[])
 
