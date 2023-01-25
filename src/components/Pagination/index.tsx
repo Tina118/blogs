@@ -39,6 +39,7 @@ class Pagination extends React.Component<PaginationProps> {
       <div className="d-flex justify-content-center align-items-center">
         <ul className="pagination">
           <li
+          key="previous"
             className={`page-item ${
               this.state.selectedPage === 1 ? 'disabled' : ''
             }`}
@@ -48,7 +49,7 @@ class Pagination extends React.Component<PaginationProps> {
             </a>
           </li>
           {this.state.pages.map((page: number) => (
-            <li className="page-item">
+            <li className="page-item" key={page}>
               <a
                 className={`page-link ${
                   this.state.selectedPage === page ? 'active' : ''
@@ -62,6 +63,7 @@ class Pagination extends React.Component<PaginationProps> {
           ))}
 
           <li
+          key="next"
             className={`page-item ${
               this.state.selectedPage === this.props.numberOfTotalPages
                 ? 'disabled'

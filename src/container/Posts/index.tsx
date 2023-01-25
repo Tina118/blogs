@@ -56,12 +56,13 @@ class Posts extends React.Component {
 
     const visiblePosts = this.state.posts.slice(start, end)
 
-    console.log(prevState.visiblePosts)
+    if (
+      JSON.stringify(prevState.visiblePosts) !== JSON.stringify(visiblePosts)
+    ) {
+      this.setState({ visiblePosts })
+    }
 
-    if(JSON.stringify(prevState.visiblePosts)!==JSON.stringify(visiblePosts)){this.setState({ visiblePosts })}
-    
-
-    console.log(visiblePosts)
+  
   }
 
   handlePagination = (page: number) => this.setState({ currentPage: page })
@@ -69,10 +70,10 @@ class Posts extends React.Component {
   render() {
     return (
       <>
-        {this.state.visiblePosts.map((posts: object[]) => (
-          <div className="card-group">
+        {this.state.visiblePosts.map((posts: object[],index:number) => (
+          <div className="card-group" key={index}>
             {posts.map(({ id, name, email, body }: any) => (
-              <PostCard id={id} name={name} email={email} body={body} />
+              <PostCard id={id} name={name} email={email} body={body} key={name}/>
             ))}
           </div>
         ))}
