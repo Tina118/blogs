@@ -17,8 +17,7 @@ const PostCard: FC<PostCardProps> = ({ id, name, email, body }) => {
       <div className="card-body d-flex flex-column">
         <h5 className="card-title">{name}</h5>
         <h6 className="card-subtitle mb-2 text-muted">{email}</h6>
-        <p className="card-text">{body}</p>
-        <a href="#" className="btn btn-primary mt-auto align-self-start">
+        <a href={`posts/${id}`} className="btn btn-primary mt-auto align-self-start">
           Post Details
         </a>
       </div>
