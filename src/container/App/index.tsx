@@ -6,7 +6,7 @@ import Posts from 'container/Posts';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="blogs">
     <Routes>
       <Route path="/" element={<Login />}></Route>
       <Route path="posts" element={<Posts />}></Route>
