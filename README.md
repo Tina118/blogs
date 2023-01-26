@@ -1,46 +1,41 @@
-# Getting Started with Create React App
+# **Simple Application to view Posts**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Technology used** : HTML, CSS, bootstrap, Typescript, React 
 
-## Available Scripts
+**Note - If you are running it locally , it will display on http://localhost:3000/blogs**
 
-In the project directory, you can run:
+Functionalities:
 
-### `npm start`
+1]Login page will be dislayed when you visit this page
+<img width="835" alt="image" src="https://user-images.githubusercontent.com/47208932/214827197-ebe88d87-0293-429c-a2bf-021dee6e09f4.png" width="926">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2]If you enter wrong credentials and click on **Login** button alert will be displayed on top
+<img width="943" alt="image" src="https://user-images.githubusercontent.com/47208932/214827456-c47a4e8e-e63e-450b-a5d1-473dc19ffa88.png" width="926">
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+3]Login page is static as of now and credentails to login are : **Username** : **admin** , **Password** : **admin@123**
+<img width="836" alt="image" src="https://user-images.githubusercontent.com/47208932/214827663-e78fd02d-548a-493e-9325-a7616ba131a0.png" width="926">
 
-### `npm test`
+4]Once you login you will be able to see differenct different posts on screen
+<img width="943" alt="image" src="https://user-images.githubusercontent.com/47208932/214827963-4fdf187b-2056-44fc-9868-7ed804e2a286.png" width="926">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5]Below we have pagination added to browser to different pages and view different pages
+<img width="942" alt="image" src="https://user-images.githubusercontent.com/47208932/214828439-e680faa3-543a-4cfe-9e9b-a582929ea653.png" width="926">
 
-### `npm run build`
+6]Active page selected will be highlighed in pagination
+<img width="935" alt="image" src="https://user-images.githubusercontent.com/47208932/214828561-c3e91006-1cce-4086-8cb8-87dcb773df0e.png" width="926">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+7]Previous and Next can be used to move to previous or next page
+<img width="940" alt="image" src="https://user-images.githubusercontent.com/47208932/214828699-b61f752a-f606-4607-b8f9-de0597102901.png" width="926">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+8]Previous button will be disabled when on first page and next button will be disabled when on last page
+<img width="943" alt="image" src="https://user-images.githubusercontent.com/47208932/214828858-a4809aba-3d53-431e-84b3-f11c0ea3e8f2.png" width="926">
+<img width="945" alt="image" src="https://user-images.githubusercontent.com/47208932/214828914-45165f2e-ca3f-433c-91b1-126f73923739.png" width="926">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+9]It also has navigation with search bar where in you can search relevant post you are looking for
+<img width="947" alt="image" src="https://user-images.githubusercontent.com/47208932/214828149-a6c89908-ebd2-4593-aea4-050441389ccc.png" width="926">
 
-### `npm run eject`
+10]When clicked on Post Details button of any post, it will redirect to page when details post will be displayed
+<img width="958" alt="image" src="https://user-images.githubusercontent.com/47208932/214829120-da1dd56b-f65f-4352-9548-7e5ff7b51990.png" width="926">
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+11]When we click on logout button, you will be loggedout and redirected to login page
+<img width="896" alt="image" src="https://user-images.githubusercontent.com/47208932/214829259-40fd60cc-2e7c-4f00-b370-30d2dd90901a.png" width="926">
