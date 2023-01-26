@@ -2,7 +2,7 @@
   "name": "blogs",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tina118.github.io/blogs",
+  "homepage": "https://tina118.github.io/blogs/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
