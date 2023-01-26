@@ -4,10 +4,9 @@ interface PostCardProps {
   id: string
   name: string
   email: string
-  body: string
 }
 
-const PostCard: FC<PostCardProps> = ({ id, name, email, body }) => {
+const PostCard: FC<PostCardProps> = ({ id, name, email }) => {
   const src = 'https://source.unsplash.com/random/200x200?sig=' + id
 
   return (

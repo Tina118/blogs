@@ -124,14 +124,8 @@ class Posts extends React.Component<{
           <>
             {this.state.visiblePosts.map((posts: object[], index: number) => (
               <div className="card-group" key={index}>
-                {posts.map(({ id, name, email, body }: any) => (
-                  <PostCard
-                    id={id}
-                    name={name}
-                    email={email}
-                    body={body}
-                    key={name}
-                  />
+                {posts.map(({ id, name, email }: any) => (
+                  <PostCard id={id} name={name} email={email} key={name} />
                 ))}
               </div>
             ))}
