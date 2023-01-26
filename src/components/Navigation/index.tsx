@@ -7,6 +7,10 @@ interface NavigationProps {
   showSearch: boolean
 }
 
+/**
+ * Navigation
+ * Component for Navigation bar
+ */
 const Navigation: FC<NavigationProps> = ({
   handleLogout,
   handleSearch,

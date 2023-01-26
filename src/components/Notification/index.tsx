@@ -4,6 +4,10 @@ interface NotificationProps {
   alertMessage: string
 }
 
+/**
+ * Notification
+ * Component to dislay alert notification
+ */
 const Notification: FC<NotificationProps> = ({ alertMessage }) => {
   return (
     <div

@@ -3,7 +3,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Login from 'container/Login';
 import Posts from 'container/Posts';
 
-
+/**
+ * App
+ * Main App Component 
+ */
 const App = () => {
   return (
     <BrowserRouter basename="blogs">

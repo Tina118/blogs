@@ -6,6 +6,10 @@ interface SubmitButtonProps {
   [rest:keyof any]: any
 }
 
+/**
+ * Submit Button
+ * Component for submit button
+ */
 const SubmitButton: FC<SubmitButtonProps> = ({
   buttonText,
   onClick,

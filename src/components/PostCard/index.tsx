@@ -6,6 +6,10 @@ interface PostCardProps {
   email: string
 }
 
+/**
+ * PostCard 
+ * Component to display Posts 
+ */
 const PostCard: FC<PostCardProps> = ({ id, name, email }) => {
   const src = 'https://source.unsplash.com/random/200x200?sig=' + id
 

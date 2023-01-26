@@ -5,21 +5,29 @@ interface PaginationProps {
   handlePagination: (page: number) => void
 }
 
+/**
+ * Pagination
+ * Component to display Pagination
+ * Containes Prev button which is disabled if its a 1st page and Next button which is disabled if its a last page
+ */
 class Pagination extends React.Component<PaginationProps> {
   state = { pages: [], selectedPage: 1 }
 
   componentDidMount(): void {
+    //will create array of number of pages 
     const pages = new Array(this.props.numberOfTotalPages)
       .fill(null)
       .map((_, i) => i + 1)
     this.setState({ pages })
   }
 
+  //update state to page selected from pagination
   handleClick = (page: number) => {
     this.setState({ selectedPage: page })
     this.props.handlePagination(page)
   }
 
+  //update state to selected page-1 on click of Previous button
   handlePrev = () => {
     if (this.state.selectedPage !== 1) {
       this.setState({ selectedPage: this.state.selectedPage - 1 })
@@ -27,6 +35,7 @@ class Pagination extends React.Component<PaginationProps> {
     }
   }
 
+  //update state to selected page+1 on click of Next button
   handleNext = () => {
     if (this.state.selectedPage !== this.props.numberOfTotalPages) {
       this.setState({ selectedPage: this.state.selectedPage + 1 })

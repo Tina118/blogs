@@ -7,6 +7,10 @@ interface DetailedPostCardProps {
   body: string
 }
 
+/**
+ * DetailedPostCard 
+ * Display the selected Post in detail with comments 
+ */
 const DetailedPostCard: FC<DetailedPostCardProps> = ({ id, name, email, body }) => (
   <div className="d-flex justify-content-center align-items-center">
   <div className="card mb-3" style={{width:"30rem"}}>
