@@ -3,9 +3,10 @@ import React from 'react'
 import { withRouter, WithRouterProps } from 'helper/withRouter'
 import InputField from 'components/InputField'
 import SubmitButton from 'components/SubmitButton'
+import Notification from 'components/Notification'
 
 class Login extends React.Component<{ router: WithRouterProps }> {
-  state = { username: '', password: '' }
+  state = { username: '', password: '',validity:false }
 
   handleUsernameChange: React.ChangeEventHandler<HTMLInputElement> = ({
     target: { value },
@@ -25,7 +26,11 @@ class Login extends React.Component<{ router: WithRouterProps }> {
       this.state.username === 'admin' &&
       this.state.password === 'admin@123'
     ) {
+      this.setState({validity:false})
       navigate('/posts')
+    }else{
+
+      this.setState({validity:true})
     }
   }
 
@@ -34,6 +39,7 @@ class Login extends React.Component<{ router: WithRouterProps }> {
       <>
         <section className="vh-100">
           <div className="container-fluid h-custom">
+            {this.state.validity && <Notification alertMessage="Please enter valid username and password"/>}
             <div className="row d-flex justify-content-center align-items-center ">
               <div className="col-md-9 col-lg-6 col-xl-5">
                 <img
@@ -61,7 +67,7 @@ class Login extends React.Component<{ router: WithRouterProps }> {
                   <SubmitButton
                     buttonText="Login"
                     onClick={this.handleSubmit}
-                    style={{paddingLeft: "2.5rem", paddingRight: "2.5rem"}}
+                    style={{ paddingLeft: '2.5rem', paddingRight: '2.5rem' }}
                   />
                 </form>
               </div>

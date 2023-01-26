@@ -55,18 +55,19 @@ class Posts extends React.Component<{
     const { params } = this.props.router
 
     if (params.id) {
-      console.log(params.id)
       const post = this.state.posts
         .flat()
         .filter(({ id }: any) => id === Number(params.id))
 
       if (JSON.stringify(prevState.post) !== JSON.stringify(post[0])) {
-
         this.setState({ post: post[0] })
       }
     }
 
-    if (JSON.stringify(prevState.currentPage) !== JSON.stringify(this.state.currentPage)) {
+    if (
+      JSON.stringify(prevState.currentPage) !==
+      JSON.stringify(this.state.currentPage)
+    ) {
       this.setState({ searchQuery: '' })
     }
     if (this.state.searchQuery !== '') return
@@ -99,18 +100,18 @@ class Posts extends React.Component<{
   }) => {
     this.setState({ searchQuery: value })
     const filteredPost = filterPosts(this.state.visiblePosts, value)
+
     this.setState({ visiblePosts: filteredPost })
   }
 
   render() {
-  
     return (
       <>
         <Navigation
           handleLogout={this.handleLogout}
           handleSearch={this.handleSearch}
           value={this.state.searchQuery}
-          showSearch={this.state.post.id === 0 }
+          showSearch={this.state.post.id === 0}
         />
         {this.state.post.id !== 0 ? (
           <DetailedPostCard

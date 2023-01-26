@@ -1,24 +1,27 @@
-import {formatData} from './formatData'
+import { formatData } from './formatData'
 
-export const filterPosts = (posts:any,query:string) => {
-    if(query==="") return posts;
-    
-    const postsList = posts.flat()
+export const filterPosts = (posts: any, query: string) => {
+  if (query === '') return posts
 
-    const filterByName = postsList.filter(({ name }:any) => {
-        
-        return name.toLowerCase().includes(query.toLowerCase());
-      });
+  const postsList = posts.flat()
 
-    const filterByEmail = postsList.filter(({ email }:any) => {
-        return email.toLowerCase().includes(query.toLowerCase());
-      });
+  const filterByName = postsList.filter(({ name }: any) =>
+    name.toLowerCase().includes(query.toLowerCase()),
+  )
 
+  const filterByEmail = postsList.filter(({ email }: any) =>
+    email.toLowerCase().includes(query.toLowerCase()),
+  )
 
-      const filteredPost = [...filterByName,...filterByEmail]
+  const filteredPost = [...filterByName, ...filterByEmail].reduce(
+    (accumulator, current) => {
+      if (!accumulator.some((item: { id: any }) => item.id === current.id)) {
+        accumulator.push(current)
+      }
+      return accumulator
+    },
+    [],
+  )
 
-
-      return formatData(filteredPost,3,[])
-
-    
+  return formatData(filteredPost, 3, [])
 }
